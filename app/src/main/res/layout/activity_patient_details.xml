@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Patient Details Title -->
+        <TextView
+            android:id="@+id/patientDetailsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Patient Details"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/primaryBackground"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Patient Info Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/patientCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Patient Code: 11"
+                    android:textColor="@color/primaryBackground"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView android:id="@+id/patientFullName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Patient Fullname: Kayte" android:textStyle="bold"/>
+                <TextView android:id="@+id/patientGender" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Gender: Female"/>
+                <TextView android:id="@+id/patientAddress" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Address: Sampaloc Manila"/>
+                <TextView android:id="@+id/patientAge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Age: 23"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Vitals Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vitals"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:textColor="@color/primaryBackground"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Vitals Display (Minimalist Style) -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView android:id="@+id/vitalBloodPressure" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Blood Pressure: 120/80" android:textColor="@color/primaryBackground" android:paddingBottom="8dp"/>
+
+                <TextView android:id="@+id/vitalHeartRate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Heart Rate: 72 bpm" android:textColor="@color/primaryBackground" android:paddingBottom="8dp"/>
+
+                <TextView android:id="@+id/vitalTemperature" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Temperature: 36.5°C" android:textColor="@color/primaryBackground" android:paddingBottom="8dp"/>
+
+                <TextView android:id="@+id/vitalWeight" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Weight: 60 kg" android:textColor="@color/primaryBackground" android:paddingBottom="8dp"/>
+
+                <TextView android:id="@+id/vitalHeight" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Height: 165 cm" android:textColor="@color/primaryBackground" android:paddingBottom="8dp"/>
+
+                <TextView android:id="@+id/vitalBloodOxygen" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Blood Oxygen: 98%" android:textColor="@color/primaryBackground" android:paddingBottom="8dp"/>
+
+                <TextView android:id="@+id/vitalRespirationRate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Respiration Rate: 16 bpm" android:textColor="@color/primaryBackground" android:paddingBottom="8dp"/>
+
+                <ImageView
+                    android:id="@+id/vitalQrCode"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="QR Code"
+                    android:layout_gravity="center" />
+
+                <Button
+                    android:id="@+id/vitalEditButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit"
+                    android:backgroundTint="@color/primaryBackground"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="12dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</ScrollView>

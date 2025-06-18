@@ -1,0 +1,32 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <TextView
+        android:text="Scan QR Code"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/primaryBackground"
+        android:layout_marginBottom="24dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/scanQrButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scan QR"
+        android:textColor="#fff"
+        app:backgroundTint="@color/primaryBackground"
+        app:strokeColor="@color/primaryBackground"
+        app:strokeWidth="2dp"
+        app:cornerRadius="12dp"
+        android:elevation="2dp"
+        android:padding="12dp" />
+</LinearLayout>

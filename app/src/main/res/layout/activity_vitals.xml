@@ -1,0 +1,158 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryBackground">
+
+    <TextView
+        android:id="@+id/vitalsTitle"
+        android:text="YOUR VITALS"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- ID Card Style Container for Vitals -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/vitalsCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:strokeColor="#FFFFFF"
+        app:strokeWidth="2dp"
+        android:backgroundTint="#ffffff"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/vitalsReadOnlyLayout"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent">
+
+            <!-- Profile Icon and Name -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+                <ImageView
+                    android:id="@+id/profileIcon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_patient"
+                    android:background="@drawable/circle_bg"
+                    android:backgroundTint="@color/primaryBackground"
+                    android:padding="8dp"/>
+                <TextView
+                    android:id="@+id/userNameView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="User Name"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/primaryBackground"
+                    android:layout_marginStart="16dp"/>
+            </LinearLayout>
+
+            <!-- Vitals Display -->
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Blood Pressure:" android:textColor="@color/primaryBackground"/>
+                <TextView android:id="@+id/bloodPressureView" android:layout_width="160dp" android:layout_height="wrap_content" android:textColor="@color/primaryBackground"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Heart Rate:" android:textColor="@color/primaryBackground"/>
+                <TextView android:id="@+id/heartRateView" android:layout_width="160dp" android:layout_height="wrap_content" android:textColor="@color/primaryBackground"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Temperature:" android:textColor="@color/primaryBackground"/>
+                <TextView android:id="@+id/temperatureView" android:layout_width="160dp" android:layout_height="wrap_content" android:textColor="@color/primaryBackground"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Weight:" android:textColor="@color/primaryBackground"/>
+                <TextView android:id="@+id/weightView" android:layout_width="160dp" android:layout_height="wrap_content" android:textColor="@color/primaryBackground"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Height:" android:textColor="@color/primaryBackground"/>
+                <TextView android:id="@+id/heightView" android:layout_width="160dp" android:layout_height="wrap_content" android:textColor="@color/primaryBackground"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Blood Oxygen:" android:textColor="@color/primaryBackground"/>
+                <TextView android:id="@+id/bloodOxygenView" android:layout_width="160dp" android:layout_height="wrap_content" android:textColor="@color/primaryBackground"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Respiration Rate:" android:textColor="@color/primaryBackground"/>
+                <TextView android:id="@+id/respirationRateView" android:layout_width="160dp" android:layout_height="wrap_content" android:textColor="@color/primaryBackground"/>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Editable Vitals Form -->
+    <LinearLayout
+        android:id="@+id/vitalsFormLayout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Blood Pressure:" android:textColor="#fff"/>
+            <EditText android:id="@+id/bloodPressureInput" android:layout_width="160dp" android:layout_height="wrap_content" android:background="#fff" android:inputType="text"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Heart Rate:" android:textColor="#fff"/>
+            <EditText android:id="@+id/heartRateInput" android:layout_width="160dp" android:layout_height="wrap_content" android:background="#fff" android:inputType="text"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Temperature:" android:textColor="#fff"/>
+            <EditText android:id="@+id/temperatureInput" android:layout_width="160dp" android:layout_height="wrap_content" android:background="#fff" android:inputType="text"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Weight:" android:textColor="#fff"/>
+            <EditText android:id="@+id/weightInput" android:layout_width="160dp" android:layout_height="wrap_content" android:background="#fff" android:inputType="text"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Height:" android:textColor="#fff"/>
+            <EditText android:id="@+id/heightInput" android:layout_width="160dp" android:layout_height="wrap_content" android:background="#fff" android:inputType="text"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Blood Oxygen:" android:textColor="#fff"/>
+            <EditText android:id="@+id/bloodOxygenInput" android:layout_width="160dp" android:layout_height="wrap_content" android:background="#fff" android:inputType="text"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Respiration Rate:" android:textColor="#fff"/>
+            <EditText android:id="@+id/respirationRateInput" android:layout_width="160dp" android:layout_height="wrap_content" android:background="#fff" android:inputType="text"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/updateVitalsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Vitals"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#fff"
+        android:textColor="@color/primaryBackground"
+        android:layout_marginTop="24dp"/>
+
+    <TextView
+        android:id="@+id/vitalsSuccessMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="32dp"/>
+
+</LinearLayout> 

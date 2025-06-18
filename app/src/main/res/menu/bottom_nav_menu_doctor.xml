@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_doctor_home"
+        android:icon="@drawable/ic_health_logo"
+        android:title="Home" />
+    <item
+        android:id="@+id/nav_diagnosis"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="Diagnosis" />
+    <item
+        android:id="@+id/nav_scan_logs"
+        android:icon="@android:drawable/ic_menu_recent_history"
+        android:title="Scan Logs" />
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@android:drawable/ic_lock_power_off"
+        android:title="Logout" />
+</menu> 
