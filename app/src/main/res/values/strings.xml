@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">HealthEdge</string>
     <string name="logo_desc">App Logo</string>
+    <string name="camera_instruction_image_desc">Camera instruction illustration</string>
+    <string name="license_instruction_image_desc">Medical license instruction illustration</string>
 
 </resources>

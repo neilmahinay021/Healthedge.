@@ -18,6 +18,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var passwordEditText: EditText
     private lateinit var loginButton: Button
     private lateinit var registerTextView: TextView
+    private lateinit var loginRegisterTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
         passwordEditText = findViewById(R.id.editTextPassword)
         loginButton = findViewById(R.id.buttonLogin)
         registerTextView = findViewById(R.id.textViewRegister)
+        loginRegisterTextView = findViewById(R.id.textViewLoginRegister)
 
         loginButton.setOnClickListener {
             val email = emailEditText.text.toString().trim()
@@ -39,6 +41,9 @@ class LoginActivity : AppCompatActivity() {
         }
 
         registerTextView.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
+        }
+        loginRegisterTextView.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
     }

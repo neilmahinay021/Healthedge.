@@ -17,6 +17,7 @@ class DoctorRegisterActivity : AppCompatActivity() {
 
     companion object {
         private const val REQUEST_ID_SCAN = 1
+        private const val REQUEST_LICENSE_INSTRUCTION = 2
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +26,8 @@ class DoctorRegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.scanIdButton.setOnClickListener {
-            startActivityForResult(Intent(this, DoctorIdScanActivity::class.java), REQUEST_ID_SCAN)
+            val intent = Intent(this, LicenseInstructionActivity::class.java)
+            startActivityForResult(intent, REQUEST_LICENSE_INSTRUCTION)
         }
 
         binding.registerButton.setOnClickListener {
@@ -47,6 +49,8 @@ class DoctorRegisterActivity : AppCompatActivity() {
                 binding.scanIdButton.text = "Medical License ID Verified ✓"
                 binding.scanIdButton.setBackgroundColor(resources.getColor(android.R.color.holo_green_dark, theme))
             }
+        } else if (requestCode == REQUEST_LICENSE_INSTRUCTION && resultCode == RESULT_OK) {
+            startActivityForResult(Intent(this, DoctorIdScanActivity::class.java), REQUEST_ID_SCAN)
         }
     }
 

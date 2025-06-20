@@ -90,6 +90,17 @@ class PatientRegisterFragment : Fragment() {
         }
     }
 
+    private val cameraInstructionLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            startFaceRegistration()
+        } else {
+            binding.registerButton.isEnabled = true
+            binding.progressBar.hide()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -182,7 +193,9 @@ class PatientRegisterFragment : Fragment() {
 
                 if (success == true && userId != null) {
                     this@PatientRegisterFragment.userId = userId
-                    startFaceRegistration()
+                    // Show camera instruction before face registration
+                    val intent = Intent(requireContext(), CameraInstructionActivity::class.java)
+                    cameraInstructionLauncher.launch(intent)
                 } else {
                     val errorMessage = error ?: "Unknown error occurred"
                     requireContext().appendLogToFile("registration_debug.txt", "REGISTRATION FAILED: $errorMessage")

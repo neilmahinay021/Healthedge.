@@ -76,6 +76,8 @@
             android:exported="false"
             android:label="Face Scan Logs"
             android:parentActivityName=".DoctorDashboardActivity" />
+        <activity android:name=".CameraInstructionActivity" />
+        <activity android:name=".LicenseInstructionActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

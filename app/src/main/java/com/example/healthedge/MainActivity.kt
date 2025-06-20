@@ -336,13 +336,14 @@ class MainActivity : AppCompatActivity() {
                             conditionView.text = condition
                             // Set icon based on condition
                             when (condition) {
-                                "Clear" -> iconView.setImageResource(android.R.drawable.ic_menu_day)
-                                "Clouds" -> iconView.setImageResource(android.R.drawable.ic_menu_compass)
-                                "Rain" -> iconView.setImageResource(android.R.drawable.ic_menu_compass)
-                                "Thunderstorm" -> iconView.setImageResource(android.R.drawable.ic_menu_compass)
-                                "Drizzle" -> iconView.setImageResource(android.R.drawable.ic_menu_compass)
-                                "Snow" -> iconView.setImageResource(android.R.drawable.ic_menu_gallery)
-                                else -> iconView.setImageResource(android.R.drawable.ic_menu_help)
+                                "Clear" -> iconView.setImageResource(R.drawable.sun)
+                                "Clouds" -> iconView.setImageResource(R.drawable.cloudy)
+                                "Rain" -> iconView.setImageResource(R.drawable.rainy_day)
+                                "Thunderstorm" -> iconView.setImageResource(R.drawable.storm)
+                                "Drizzle" -> iconView.setImageResource(R.drawable.rainy_day)
+                                "Snow" -> iconView.setImageResource(R.drawable.snow)
+                                "Hot" -> iconView.setImageResource(R.drawable.hot)
+                                else -> iconView.setImageResource(R.drawable.weather)
                             }
                         }
                     } catch (e: Exception) {

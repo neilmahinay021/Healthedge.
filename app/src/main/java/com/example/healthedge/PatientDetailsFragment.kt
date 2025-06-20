@@ -13,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.healthedge.api.ApiClient
 import com.example.healthedge.models.User
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
 
 class PatientDetailsFragment : Fragment() {
@@ -62,40 +63,32 @@ class PatientDetailsFragment : Fragment() {
                     val vitalsList = response.body()
                     if (!vitalsList.isNullOrEmpty()) {
                         val vitals = vitalsList.first()
-                        view.findViewById<TextView>(R.id.vitalBloodPressure).text = vitals.bloodPressure ?: "N/A"
-                        view.findViewById<TextView>(R.id.vitalHeartRate).text = vitals.heartRate ?: "N/A"
-                        view.findViewById<TextView>(R.id.vitalTemperature).text = vitals.temperature ?: "N/A"
-                        view.findViewById<TextView>(R.id.vitalWeight).text = vitals.weight ?: "N/A"
-                        view.findViewById<TextView>(R.id.vitalHeight).text = vitals.height ?: "N/A"
-                        view.findViewById<TextView>(R.id.vitalBloodOxygen).text = vitals.bloodOxygen ?: "N/A"
-                        view.findViewById<TextView>(R.id.vitalRespirationRate).text = vitals.respirationRate ?: "N/A"
-
-                        // Generate QR code URL for the patient
-                        val qrCodeUrl = "https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=Patient$userId"
-                        val qrImage = view.findViewById<ImageView>(R.id.vitalQrCode)
-                        Glide.with(this@PatientDetailsFragment)
-                            .load(qrCodeUrl)
-                            .into(qrImage)
+                        view.findViewById<TextView>(R.id.vitalBloodPressure).text = "Blood Pressure: ${vitals.bloodPressure ?: "N/A"}"
+                        view.findViewById<TextView>(R.id.vitalHeartRate).text = "Heart Rate: ${vitals.heartRate ?: "N/A"}"
+                        view.findViewById<TextView>(R.id.vitalTemperature).text = "Temperature: ${vitals.temperature ?: "N/A"}"
+                        view.findViewById<TextView>(R.id.vitalWeight).text = "Weight: ${vitals.weight ?: "N/A"}"
+                        view.findViewById<TextView>(R.id.vitalHeight).text = "Height: ${vitals.height ?: "N/A"}"
+                        view.findViewById<TextView>(R.id.vitalBloodOxygen).text = "Blood Oxygen: ${vitals.bloodOxygen ?: "N/A"}"
+                        view.findViewById<TextView>(R.id.vitalRespirationRate).text = "Respiration Rate: ${vitals.respirationRate ?: "N/A"}"
                     } else {
                         // No vitals found, show N/A for all fields
-                        view.findViewById<TextView>(R.id.vitalBloodPressure).text = "N/A"
-                        view.findViewById<TextView>(R.id.vitalHeartRate).text = "N/A"
-                        view.findViewById<TextView>(R.id.vitalTemperature).text = "N/A"
-                        view.findViewById<TextView>(R.id.vitalWeight).text = "N/A"
-                        view.findViewById<TextView>(R.id.vitalHeight).text = "N/A"
-                        view.findViewById<TextView>(R.id.vitalBloodOxygen).text = "N/A"
-                        view.findViewById<TextView>(R.id.vitalRespirationRate).text = "N/A"
+                        view.findViewById<TextView>(R.id.vitalBloodPressure).text = "Blood Pressure: N/A"
+                        view.findViewById<TextView>(R.id.vitalHeartRate).text = "Heart Rate: N/A"
+                        view.findViewById<TextView>(R.id.vitalTemperature).text = "Temperature: N/A"
+                        view.findViewById<TextView>(R.id.vitalWeight).text = "Weight: N/A"
+                        view.findViewById<TextView>(R.id.vitalHeight).text = "Height: N/A"
+                        view.findViewById<TextView>(R.id.vitalBloodOxygen).text = "Blood Oxygen: N/A"
+                        view.findViewById<TextView>(R.id.vitalRespirationRate).text = "Respiration Rate: N/A"
                     }
                 } else {
                     Toast.makeText(requireContext(), "Failed to load vitals", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Exception) {
-                Toast.makeText(requireContext(), "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+                if (e !is CancellationException) {
+                    Toast.makeText(requireContext(), "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+                // else: ignore cancellation exception
             }
-        }
-
-        view.findViewById<Button>(R.id.vitalEditButton).setOnClickListener {
-            Toast.makeText(requireContext(), "Edit vitals clicked!", Toast.LENGTH_SHORT).show()
         }
 
         return view

@@ -22,6 +22,7 @@ class DoctorRegisterFragment : Fragment() {
 
     companion object {
         private const val REQUEST_ID_SCAN = 1001
+        private const val REQUEST_LICENSE_INSTRUCTION = 2001
     }
 
     override fun onCreateView(
@@ -30,7 +31,8 @@ class DoctorRegisterFragment : Fragment() {
         _binding = FragmentDoctorRegisterBinding.inflate(inflater, container, false)
 
         binding.scanIdButton.setOnClickListener {
-            startActivityForResult(Intent(requireContext(), DoctorIdScanActivity::class.java), REQUEST_ID_SCAN)
+            val intent = Intent(requireContext(), LicenseInstructionActivity::class.java)
+            startActivityForResult(intent, REQUEST_LICENSE_INSTRUCTION)
         }
 
         binding.registerButton.setOnClickListener {
@@ -53,6 +55,8 @@ class DoctorRegisterFragment : Fragment() {
                 binding.scanIdButton.text = "Medical License ID Verified ✓"
                 binding.scanIdButton.setBackgroundColor(ContextCompat.getColor(requireContext(), android.R.color.holo_green_dark))
             }
+        } else if (requestCode == REQUEST_LICENSE_INSTRUCTION && resultCode == Activity.RESULT_OK) {
+            startActivityForResult(Intent(requireContext(), DoctorIdScanActivity::class.java), REQUEST_ID_SCAN)
         }
     }
 
